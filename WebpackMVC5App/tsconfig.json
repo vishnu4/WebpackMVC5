@@ -1,0 +1,54 @@
+﻿{
+  "compilerOptions": {
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "noEmitHelpers": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "allowUnusedLabels": true,
+    "target": "es5",
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "removeComments": true,
+    "baseUrl": "./scripts",
+    //"allowJs": true,
+    //"outFile": "./build/tsbundle.js",
+    //"outDir": "./build/",
+    "paths": {
+    },
+    "lib": [
+      "dom",
+      "es6",
+      "scripthost",
+      "es5",
+      "es2015",
+      "es2015.promise"
+    ],
+    "types": [
+      "bootstrap",
+      "jquery",
+      "kendo-ui"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "build"
+  ],
+  "typeRoots": [
+    "node_modules/@types",
+    "node_modules/moment"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    //"forkChecker": true,
+    //"useWebpackText": true,
+    "useBabel": true,
+    "useCache": true
+  },
+  "compileOnSave": true,
+  "buildOnSave": true //,
+  //"atom": { "rewriteTsconfig": false }
+}

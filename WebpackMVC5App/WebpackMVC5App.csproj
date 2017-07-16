@@ -103,6 +103,9 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
+    <Content Include="webpack.config.js" />
     <None Include="package.json" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -131,6 +134,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
