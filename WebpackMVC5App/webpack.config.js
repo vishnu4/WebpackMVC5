@@ -13,10 +13,19 @@ var paths = {
 };
 
 var wbConfigEntries = {
-    "jqkendo": [
+    "jqkendoMain": [
         paths.node + "jquery/dist/jquery.js",
         paths.node + "@progress/kendo-ui/js/kendo.web.js",
-        paths.node + "@progress/kendo-ui/js/kendo.aspnetmvc.js"
+        paths.node + "@progress/kendo-ui/js/kendo.aspnetmvc.js",
+        paths.appjs + "main.ts"
+    ],
+    "cssMain": [
+        paths.node + "bootstrap/dist/css/bootstrap.css",
+        paths.node + "bootstrap/dist/css/bootstrap-theme.css",
+        paths.node + "font-awesome/css/font-awesome.css",
+        paths.node + "@progress/kendo-ui/css/web/kendo.common.css",
+        paths.node + "@progress/kendo-ui/css/web/kendo.blueopal.css",
+        paths.appcss + "Site.scss"
     ]
 }
 
@@ -64,7 +73,7 @@ module.exports = {
             { test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?-loaderprefix=font/&limit=5000' },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=application/octet-stream' },
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, use: 'url-loader?limit=10000&mimetype=image/svg+xml' },
-            { test: /\.(jpg|png)$/, use: 'file-loader' },
+            { test: /\.(jpg|png|gif)$/, use: 'file-loader' },
             { enforce: 'pre', test: /\.tsx?$/, use: "awesome-typescript-loader" }
         ],
         loaders: [

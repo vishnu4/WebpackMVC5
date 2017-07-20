@@ -20,9 +20,12 @@
 x64/
 x86/
 bld/
+build/
+.awcache/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -286,3 +289,5 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/WebpackMVC5App/Scripts/*.js
+/WebpackMVC5App/Scripts/*.js.map
