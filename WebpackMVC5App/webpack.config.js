@@ -17,9 +17,7 @@ var wbConfigEntries = {
         paths.node + "jquery/dist/jquery.js",
         paths.node + "@progress/kendo-ui/js/kendo.web.js",
         paths.node + "@progress/kendo-ui/js/kendo.aspnetmvc.js",
-        paths.appjs + "main.ts"
-    ],
-    "cssMain": [
+        paths.appjs + "main.ts",
         paths.node + "bootstrap/dist/css/bootstrap.css",
         paths.node + "bootstrap/dist/css/bootstrap-theme.css",
         paths.node + "font-awesome/css/font-awesome.css",
