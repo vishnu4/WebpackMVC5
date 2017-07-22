@@ -6,13 +6,13 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @if (System.Web.HttpContext.Current.IsDebuggingEnabled)
     {
-    <link href="@Url.Content("~/build/webpack/jqkendoMain.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/build/webpack/jqkendoMain.js")"></script>
+    <link href="@Url.Tag("~/build/webpack/jqkendoMain.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Tag("~/build/webpack/jqkendoMain.js")"></script>
     }
     else
     {
-        <link href="@Url.Content("~/build/webpack/jqkendoMain.min.css")" rel="stylesheet" type="text/css" />
-        <script src="@Url.Content("~/build/webpack/jqkendoMain.min.js")"></script>
+        <link href="@Url.Tag("~/build/webpack/jqkendoMain.min.css")" rel="stylesheet" type="text/css" />
+        <script src="@Url.Tag("~/build/webpack/jqkendoMain.min.js")"></script>
     }
 </head>
 <body>
