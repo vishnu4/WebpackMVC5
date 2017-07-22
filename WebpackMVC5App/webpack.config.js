@@ -3,8 +3,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const AssetsPlugin = require('assets-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
-
+const yargs = require('yargs');
 const path = require('path');
+
 var paths = {
     node: path.join(__dirname, "node_modules/"),
     appjs: path.join(__dirname, "Scripts/"),
@@ -12,16 +13,37 @@ var paths = {
     dist: path.join(__dirname, "build/webpack")
 };
 
+var plugins = [
+    new CheckerPlugin(),
+    new webpack.LoaderOptionsPlugin({
+        debug: true
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
+    new ExtractTextPlugin({
+        filename: '[name].css',
+        disable: false,
+        allChunks: true
+    }),
+    // allows for global variables
+    new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
+    new Visualizer()
+],
+    outputFile;
+
+if (yargs.argv.p) {
+    plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true, sourceMap: true, include: /\.min\.js$/ }));
+    outputFile = '[name].min.js';
+} else {
+    outputFile = '[name].js';
+}
+
 var wbConfigEntries = {
     "jqkendoMain": [
-        paths.node + "jquery/dist/jquery.js",
-        paths.node + "@progress/kendo-ui/js/kendo.web.js",
-        paths.node + "@progress/kendo-ui/js/kendo.aspnetmvc.js",
         paths.appjs + "main.ts",
-        paths.node + "bootstrap/dist/css/bootstrap.css",
-        paths.node + "bootstrap/dist/css/bootstrap-theme.css",
-        paths.node + "font-awesome/css/font-awesome.css",
-        paths.node + "@progress/kendo-ui/css/web/kendo.common.css",
         paths.node + "@progress/kendo-ui/css/web/kendo.blueopal.css",
         paths.appcss + "Site.scss"
     ]
@@ -34,7 +56,10 @@ module.exports = {
     output: {
         path: paths.dist, // Note: Physical files are only output by the production build task `npm run build`.
         publicPath: './',
-        filename: '[name].js'
+        filename: outputFile,
+        library: "[name]",
+        libraryTarget: "umd",
+        umdNamedDefine: true
     },
     devServer: {
         colors: true,
@@ -43,25 +68,7 @@ module.exports = {
         hot: true,
         contentBase: './'
     },
-    plugins: [
-        new CheckerPlugin(),
-        new webpack.LoaderOptionsPlugin({
-            debug: true
-        }),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new ExtractTextPlugin({
-            filename: '[name].css',
-            disable: false,
-            allChunks: true
-        }),
-        // allows for global variables
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
-        new Visualizer()
-    ],
+    plugins: plugins,
     module: {
         rules: [
             { test: /\.js$/, exclude: /node_modules/ },

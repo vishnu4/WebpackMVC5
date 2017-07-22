@@ -3,18 +3,11 @@
   "version": "v1.0.0",
   "private": true,
   "description": "Webpack with MVC5",
+  "main": "build/webpack/jqkendoMain.min.js",
   "scripts": {
-    "start": "npm run webpack:dev:watch",
-    "poststart": "npm-run-all test:watch",
-    "nsp": "nsp check",
-    "clean-build": "npm run remove-build && mkdir build",
-    "remove-build": "rimraf ./build",
-    "prebuild": "npm-run-all clean-build",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "webpack:dev": "cross-env NODE_ENV=dev webpack --config webpack.config.js",
-    "webpack:dev:watch": "cross-env NODE_ENV=dev webpack --config webpack.config.js --watch",
-    "webpack": "cross-env NODE_ENV=dev webpack --config wwebpack.config.js"
+    "prepublish": "webpack -d && webpack -p"
   },
+  "keywords": ["webpack","typescript","MVC5","ASP.Net"],
   "author": "philjohnson3@gmail.com",
   "license": "UNLICENSED",
   "dependencies": {
@@ -46,6 +39,7 @@
     "uglifyjs-webpack-plugin": "^0.4.6",
     "webpack": "^3.2.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "webpack-visualizer-plugin": "^0.1.11",
+    "yargs": "^8.0.2"
   }
 }
