@@ -7,12 +7,14 @@ import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import '../node_modules/font-awesome/css/font-awesome.css';
 import '../node_modules/@progress/kendo-ui/css/web/kendo.common.css';
 
-export module Main {
-    export function Init() {
-        console.log("Test");
+export default class Main {
+    private _name = '';
+
+    constructor(name: string) {
+        this._name = name;
+    }
+
+    TestFunc() {
+        console.log(this._name);
     }
 }
-
-//function Init() {
-//    console.log("Test");
-//}
