@@ -5,6 +5,7 @@ const Visualizer = require('webpack-visualizer-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const yargs = require('yargs');
 const path = require('path');
+//var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var paths = {
     node: path.join(__dirname, "node_modules/"),
@@ -30,6 +31,11 @@ var plugins = [
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
     }),
+    //new HtmlWebpackPlugin({
+    //    inject: false,
+    //    template: path.join(__dirname, 'Views/Shared/_Layout.cshtml'),
+    //    filename: path.join(__dirname, 'Views/Shared/_LayoutAfter.cshtml')
+    //}),
     new Visualizer()
 ],
     outputFile;
@@ -47,7 +53,7 @@ var wbConfigEntries = {
         paths.node + "@progress/kendo-ui/css/web/kendo.blueopal.css",
         paths.appcss + "Site.scss"
     ]
-}
+};
 
 module.exports = {
     devtool: 'source-map',
@@ -82,7 +88,7 @@ module.exports = {
             { enforce: 'pre', test: /\.tsx?$/, use: "awesome-typescript-loader" }
         ],
         loaders: [
-            { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" },
+            { test: require.resolve("jquery"), loader: "expose?$!expose?jQuery" }
         ]
     },
     resolve: {
