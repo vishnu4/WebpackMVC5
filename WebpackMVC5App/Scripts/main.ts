@@ -7,7 +7,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap-theme.css';
 import '../node_modules/font-awesome/css/font-awesome.css';
 import '../node_modules/@progress/kendo-ui/css/web/kendo.common.css';
 
-export default class Main {
+export  class Main {
     private _name = '';
 
     constructor(name: string) {
