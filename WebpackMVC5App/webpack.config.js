@@ -48,7 +48,7 @@ if (yargs.argv.p) {
 }
 
 var wbConfigEntries = {
-    "app": path.join(__dirname, 'Scripts/App')
+    "app": paths.appjs + "App"
 };
 
 module.exports = {

@@ -4,7 +4,6 @@ import '@progress/kendo-ui/js/kendo.web';
 import '@progress/kendo-ui/js/kendo.aspnetmvc';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
-import 'font-awesome/css/font-awesome.css';
 import '@progress/kendo-ui/css/web/kendo.common.css';
 import "@progress/kendo-ui/css/web/kendo.blueopal.css";
 import "../Content/Site.scss";
