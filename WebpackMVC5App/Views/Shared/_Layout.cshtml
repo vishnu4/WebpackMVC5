@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <script>
         window.RandomWebConfigValue = '@WebpackMVC5App.Helpers.WebConfigSettings.RandomWebConfigValue';
+        window.UrlPrefix = 'http://@Request.Url.Host@Request.Url.AbsolutePath';
     </script>
     @RenderSection("header", required: false)
     @if (System.Web.HttpContext.Current.IsDebuggingEnabled)
