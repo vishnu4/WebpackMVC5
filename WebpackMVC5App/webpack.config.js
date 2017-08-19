@@ -48,11 +48,7 @@ if (yargs.argv.p) {
 }
 
 var wbConfigEntries = {
-    "jqkendoMain": [
-        paths.appjs + "main.ts",
-        paths.node + "@progress/kendo-ui/css/web/kendo.blueopal.css",
-        paths.appcss + "Site.scss"
-    ]
+    "app": path.join(__dirname, 'Scripts/App')
 };
 
 module.exports = {
