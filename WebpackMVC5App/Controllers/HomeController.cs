@@ -13,5 +13,15 @@ namespace WebpackMVC5App.Controllers
         {
             return View();
         }
+
+        public ActionResult Kendo()
+        {
+            return View();
+        }
+
+        public ActionResult KendoWMVC()
+        {
+            return View();
+        }
     }
 }

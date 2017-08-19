@@ -7,6 +7,7 @@
     <script>
         window.RandomWebConfigValue = '@WebpackMVC5App.Helpers.WebConfigSettings.RandomWebConfigValue';
     </script>
+    @RenderSection("header", required: false)
     @if (System.Web.HttpContext.Current.IsDebuggingEnabled)
     {
         <link href="@Url.Tag("~/build/webpack/app.css")" rel="stylesheet" type="text/css" />
@@ -20,11 +21,17 @@
 </head>
 <body>
     <div class="container body-content">
+        <div class="btn-group">
+            <a title="Home" class="btn btn-primary" href="@Url.Action("Index","Home")"><span class="fa fa-home" ></span></a>
+            <a title="Kendo" class="btn btn-success" href="@Url.Action("Kendo","Home")"><span class="fa fa-chevron-right" ></span></a>
+            <a title="Kendo With MVC" class="btn btn-warning" href="@Url.Action("KendoWMVC","Home")"><span class="fa fa-chevron-right" ></span></a>
+        </div>
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
+    @RenderSection("footer", required: false)
 </body>
 </html>
