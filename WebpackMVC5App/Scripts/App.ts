@@ -12,9 +12,12 @@ import "../Content/Site.scss";
 import Main from './main';
 
 declare global {
-    interface Window { RandomWebConfigValue: string; UrlPrefix: string;  }
+    interface Window {
+        RandomWebConfigValue: string;
+        UrlPrefix: string;
+        Main: any
+    }
 }
-
-const mn = new Main(window.RandomWebConfigValue, window.UrlPrefix);
-mn.TestFunc();
+window.Main = new Main(window.RandomWebConfigValue, window.UrlPrefix);
+window.Main.TestFunc();
 
